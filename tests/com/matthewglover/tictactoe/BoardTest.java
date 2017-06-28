@@ -2,94 +2,91 @@ package com.matthewglover.tictactoe;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
-    private Board board = new Board();
+    @Test
+    public void completeRowOfXsReportsWinningRow() {
+        checkCompletedRowForPlayer(Player.X);
+    }
 
     @Test
-    public void emptyBoard() {
+    public void completeRowOfOsReportsWinningRow() {
+        checkCompletedRowForPlayer(Player.O);
+    }
+
+    @Test
+    public void whenNoWinnerReportsNull() {
+        Board board = new Board();
+        assertNull(board.getWinner());
+    }
+
+    @Test
+    public void reportsPlayerOWinsCorrectly() {
+        checkReportsCorrectWinner(Player.O);
+    }
+
+    @Test
+    public void reportsPlayerXWinsCorrectly() {
+        checkReportsCorrectWinner(Player.X);
+    }
+
+    @Test
+    public void whenEmptyBoardReportsIncompleteBoard() {
+        Board board = new Board();
         assertFalse(board.isComplete());
     }
 
     @Test
-    public void completeTopRowOfXs() {
-        makeMovesForPlayer(Row.top, Player.X);
-//        assertTrue(board.isComplete());
-        assertTrue(board.hasWonTopRow(Player.X));
+    public void whenCompleteBoardReportsCompleteBoard() {
+        Board board = new Board();
+        takeSquares(board, Board.allSquares, Player.O);
+        assertTrue(board.isComplete());
     }
 
     @Test
-    public void completeTopRowOfOs() {
-        makeMovesForPlayer(Row.top, Player.O);
-//        assertTrue(board.isComplete());
-        assertTrue(board.hasWonTopRow(Player.O));
+    public void whenSomeSquaresTakenReportsIncompleteBoard() {
+        Board board = new Board();
+        takeSquares(board, Arrays.copyOfRange(Board.allSquares, 0, 8), Player.O);
+        assertFalse(board.isComplete());
     }
 
     @Test
-    public void completeHorizontalMiddleRowOfXs() {
-        makeMovesForPlayer(Row.horizontalMiddle, Player.X);
-        assertTrue(board.hasWonHorizontalMiddleRow(Player.X));
+    public void moveToAlreadyCompletedSquareThrowsError() throws IllegalMoveException {
+        Board board = new Board();
+        board.move(Square.TL, Player.O);
+        Throwable exception = assertThrows(IllegalMoveException.class, () -> {
+            board.move(Square.TL, Player.X);
+        });
+        assertEquals("Square already taken", exception.getMessage());
     }
 
-    @Test
-    public void completeHorizontalMiddleRowOfOs() {
-        makeMovesForPlayer(Row.horizontalMiddle, Player.O);
-        assertTrue(board.hasWonHorizontalMiddleRow(Player.O));
+    private void checkReportsCorrectWinner(Player player){
+        for (Square[] row : Row.all) {
+            Board board = new Board();
+            takeSquares(board, row, player);
+            assertEquals(player, board.getWinner());
+        }
+    }
+    private void checkCompletedRowForPlayer(Player player) {
+        for (Square[] row : Row.all) {
+            Board board = new Board();
+            takeSquares(board, row, player);
+            assertTrue(board.isWinningRow(row, player));
+        }
     }
 
-    @Test
-    public void completeBottomRowOfXs() {
-        makeMovesForPlayer(Row.bottom, Player.X);
-        assertTrue(board.hasWonBottomRow(Player.X));
-    }
-
-    @Test
-    public void completeBottomRowOfOs() {
-        makeMovesForPlayer(Row.bottom, Player.O);
-        assertTrue(board.hasWonBottomRow(Player.O));
-    }
-
-    @Test
-    public void completeLeftRowOfXs() {
-        makeMovesForPlayer(Row.left, Player.X);
-        assertTrue(board.hasWonLeftRow(Player.X));
-    }
-
-    @Test
-    public void completeLeftRowOfOs() {
-        makeMovesForPlayer(Row.left, Player.O);
-        assertTrue(board.hasWonLeftRow(Player.O));
-    }
-
-    @Test
-    public void completeVerticalMiddleRowOfXs() {
-        makeMovesForPlayer(Row.verticalMiddle, Player.X);
-        assertTrue(board.hasWonVerticalMiddleRow(Player.X));
-    }
-
-    @Test
-    public void completeVerticalMiddleRowOfOs() {
-        makeMovesForPlayer(Row.verticalMiddle, Player.O);
-        assertTrue(board.hasWonVerticalMiddleRow(Player.O));
-    }
-
-    @Test
-    public void completeRightRowOfXs() {
-        makeMovesForPlayer(Row.right, Player.X);
-        assertTrue(board.hasWonRightRow(Player.X));
-    }
-
-    @Test
-    public void completeRightRowOfOs() {
-        makeMovesForPlayer(Row.right, Player.O);
-        assertTrue(board.hasWonRightRow(Player.O));
-    }
-
-    private void makeMovesForPlayer(Move[] moves, Player player) {
-        for (Move move : moves) {
-            board.move(move, player);
+    private void takeSquares(Board board, Square[] squares, Player player) {
+        for (Square square : squares) {
+            try {
+                board.move(square, player);
+            }
+            catch (IllegalMoveException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }

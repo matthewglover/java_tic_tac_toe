@@ -5,42 +5,43 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Board {
-    private Map<Move, Player> boardMap = new HashMap<>();
+    public static Square[] allSquares = {
+            Square.TL, Square.TM, Square.TR,
+            Square.ML, Square.MM, Square.MR,
+            Square.BL, Square.BM, Square.BR};
+
+    private Map<Square, Player> boardMap = new HashMap<>();
+
+    public void move(Square square, Player player) throws IllegalMoveException {
+        if (boardMap.containsKey(square)) {
+            throw new IllegalMoveException("Square already taken");
+        }
+        boardMap.put(square, player);
+    }
+
+    public boolean isWinningRow(Square[] row, Player player) {
+        return allMovesTaken(row, player);
+    }
+
+    public Player getWinner() {
+        if (isAnyWinningRow(Player.O)) {
+            return Player.O;
+        }
+        if (isAnyWinningRow(Player.X)) {
+            return Player.X;
+        }
+        return null;
+    }
 
     public boolean isComplete() {
-        return hasWonTopRow(Player.X) ||
-                hasWonTopRow(Player.O);
+        return Arrays.stream(allSquares).allMatch(square -> boardMap.containsKey(square));
     }
 
-    public void move(Move move, Player player) {
-        boardMap.put(move, player);
+    private boolean isAnyWinningRow(Player player) {
+        return Arrays.stream(Row.all).anyMatch(row -> isWinningRow(row, player));
     }
 
-    public boolean hasWonTopRow(Player player) {
-        return allMovesTaken(Row.top, player);
-    }
-
-    public boolean hasWonHorizontalMiddleRow(Player player) {
-        return allMovesTaken(Row.horizontalMiddle, player);
-    }
-
-    public boolean hasWonBottomRow(Player player) {
-        return allMovesTaken(Row.bottom, player);
-    }
-
-    public boolean hasWonLeftRow(Player player) {
-        return allMovesTaken(Row.left, player);
-    }
-
-    public boolean hasWonVerticalMiddleRow(Player player) {
-        return allMovesTaken(Row.verticalMiddle, player);
-    }
-
-    public boolean hasWonRightRow(Player player) {
-        return allMovesTaken(Row.right, player);
-    }
-
-    private boolean allMovesTaken(Move[] moves, Player player) {
-        return Arrays.stream(moves).allMatch(move -> boardMap.get(move) == player);
+    private boolean allMovesTaken(Square[] squares, Player player) {
+        return Arrays.stream(squares).allMatch(square -> boardMap.get(square) == player);
     }
 }

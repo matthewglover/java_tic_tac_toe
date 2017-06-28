@@ -1,6 +1,6 @@
 package com.matthewglover.tictactoe;
 
-public enum Move {
+public enum Square {
     TL,
     TM,
     TR,
