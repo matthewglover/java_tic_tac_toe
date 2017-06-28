@@ -16,7 +16,7 @@ public class Board {
     }
 
     public boolean isWinningRow(Square[] row, Player player) {
-        return allMovesTaken(row, player);
+        return Arrays.stream(row).allMatch(square -> boardMap.get(square) == player);
     }
 
     public Player getWinner() {
@@ -35,9 +35,5 @@ public class Board {
 
     private boolean isAnyWinningRow(Player player) {
         return Arrays.stream(Row.all).anyMatch(row -> isWinningRow(row, player));
-    }
-
-    private boolean allMovesTaken(Square[] squares, Player player) {
-        return Arrays.stream(squares).allMatch(square -> boardMap.get(square) == player);
     }
 }

@@ -1,6 +1,6 @@
 package com.matthewglover.tictactoe;
 
-public class Row {
+public final class Row {
     public static Square[] top = {Square.TL, Square.TM, Square.TR};
     public static Square[] horizontalMiddle = {Square.ML, Square.MM, Square.MR};
     public static Square[] bottom = {Square.BL, Square.BM, Square.BR};
