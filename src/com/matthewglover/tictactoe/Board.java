@@ -5,10 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Board {
-    public static Square[] allSquares = {
-            Square.TL, Square.TM, Square.TR,
-            Square.ML, Square.MM, Square.MR,
-            Square.BL, Square.BM, Square.BR};
 
     private Map<Square, Player> boardMap = new HashMap<>();
 
@@ -34,7 +30,7 @@ public class Board {
     }
 
     public boolean isComplete() {
-        return Arrays.stream(allSquares).allMatch(square -> boardMap.containsKey(square));
+        return Arrays.stream(Square.values()).allMatch(square -> boardMap.containsKey(square));
     }
 
     private boolean isAnyWinningRow(Player player) {

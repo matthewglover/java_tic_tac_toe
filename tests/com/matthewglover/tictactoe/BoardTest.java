@@ -43,14 +43,14 @@ class BoardTest {
     @Test
     public void whenCompleteBoardReportsCompleteBoard() {
         Board board = new Board();
-        takeSquares(board, Board.allSquares, Player.O);
+        takeSquares(board, Square.values(), Player.O);
         assertTrue(board.isComplete());
     }
 
     @Test
     public void whenSomeSquaresTakenReportsIncompleteBoard() {
         Board board = new Board();
-        takeSquares(board, Arrays.copyOfRange(Board.allSquares, 0, 8), Player.O);
+        takeSquares(board, Arrays.copyOfRange(Square.values(), 0, 8), Player.O);
         assertFalse(board.isComplete());
     }
 
