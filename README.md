@@ -20,9 +20,32 @@
 
 ## Implementation
 
-- Game Class: records moves and indicates game completed and winner based on moves made
-    - public Player getCurrentPlayer()
-    - public Player[] getBoard()
-    - public boolean isGameOver()
-    - public Player getWinner()
-    - public boolean isDrawnGame()
+- Board Class:
+    - [x] makes moves (throws error if square already taken)
+    - [x] records moves
+    - [x] checks if player has won
+    - [x] checks if board is complete
+
+- Game Class:
+    - [x] stores current player
+    - [x] makes move on board
+    - [ ] GameStatus reports on current game status (returns a GameStatus Class)
+
+- GameStatus Class:
+    - [x] contains only immutable properties:
+        - [x] isGameOver: boolean
+        - [x] isWinner: boolean
+        - [x] winner: Player
+
+- BoardRenderer:
+    - [x] takes a board
+    - [x] getRenderLines method returns a list of strings representing the current board,
+    each string being an individual line
+
+- Main:
+    - [ ] Initialises a Game
+    - [ ] Prints an introduction to the game
+    - [ ] Requests current player's move
+    - [ ] Makes move and renders updated game
+    - [ ] If game over, reports winner or draw and offers a play again option
+    - [ ] If not game over, requests current player's move

@@ -33,6 +33,11 @@ public class Board {
         return Arrays.stream(Square.values()).allMatch(square -> boardMap.containsKey(square));
     }
 
+    public Player getSquareValue(Square square) {
+        if (boardMap.containsKey(square)) return boardMap.get(square);
+        return null;
+    }
+
     private boolean isAnyWinningRow(Player player) {
         return Arrays.stream(Row.all).anyMatch(row -> isWinningRow(row, player));
     }

@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardTest {
 
     @Test
-    public void completeRowOfXsReportsWinningRow() {
+    public void completeRowOfXsReportsWinningRow() throws IllegalMoveException {
         checkCompletedRowForPlayer(Player.X);
     }
 
     @Test
-    public void completeRowOfOsReportsWinningRow() {
+    public void completeRowOfOsReportsWinningRow() throws IllegalMoveException {
         checkCompletedRowForPlayer(Player.O);
     }
 
@@ -25,12 +25,12 @@ class BoardTest {
     }
 
     @Test
-    public void reportsPlayerOWinsCorrectly() {
+    public void reportsPlayerOWinsCorrectly() throws IllegalMoveException {
         checkReportsCorrectWinner(Player.O);
     }
 
     @Test
-    public void reportsPlayerXWinsCorrectly() {
+    public void reportsPlayerXWinsCorrectly() throws IllegalMoveException {
         checkReportsCorrectWinner(Player.X);
     }
 
@@ -41,14 +41,14 @@ class BoardTest {
     }
 
     @Test
-    public void whenCompleteBoardReportsCompleteBoard() {
+    public void whenCompleteBoardReportsCompleteBoard() throws IllegalMoveException {
         Board board = new Board();
         takeSquares(board, Square.values(), Player.O);
         assertTrue(board.isComplete());
     }
 
     @Test
-    public void whenSomeSquaresTakenReportsIncompleteBoard() {
+    public void whenSomeSquaresTakenReportsIncompleteBoard() throws IllegalMoveException {
         Board board = new Board();
         takeSquares(board, Arrays.copyOfRange(Square.values(), 0, 8), Player.O);
         assertFalse(board.isComplete());
@@ -64,14 +64,14 @@ class BoardTest {
         assertEquals("Square already taken", exception.getMessage());
     }
 
-    private void checkReportsCorrectWinner(Player player){
+    private void checkReportsCorrectWinner(Player player) throws IllegalMoveException {
         for (Square[] row : Row.all) {
             Board board = new Board();
             takeSquares(board, row, player);
             assertEquals(player, board.getWinner());
         }
     }
-    private void checkCompletedRowForPlayer(Player player) {
+    private void checkCompletedRowForPlayer(Player player) throws IllegalMoveException {
         for (Square[] row : Row.all) {
             Board board = new Board();
             takeSquares(board, row, player);
@@ -79,14 +79,9 @@ class BoardTest {
         }
     }
 
-    private void takeSquares(Board board, Square[] squares, Player player) {
+    private void takeSquares(Board board, Square[] squares, Player player) throws IllegalMoveException {
         for (Square square : squares) {
-            try {
-                board.move(square, player);
-            }
-            catch (IllegalMoveException e) {
-                System.out.println(e.getMessage());
-            }
+            board.move(square, player);
         }
     }
 }
