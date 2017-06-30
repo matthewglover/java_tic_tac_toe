@@ -1,8 +1,5 @@
 package com.matthewglover.tictactoe;
 
-/**
- * Created by matthewglover on 28/06/2017.
- */
 public class Game {
 
     private Board board = new Board();
@@ -22,6 +19,10 @@ public class Game {
         boolean isGameOver = winner != null || board.isComplete();
 
         return new GameStatus(isGameOver, winner);
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     private void toggleCurrentPlayer() {
