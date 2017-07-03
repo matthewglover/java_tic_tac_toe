@@ -14,15 +14,20 @@ public class Game {
         toggleCurrentPlayer();
     }
 
-    public GameStatus getGameStatus() {
-        Player winner = board.getWinner();
-        boolean isGameOver = winner != null || board.isComplete();
-
-        return new GameStatus(isGameOver, winner);
-    }
-
     public Board getBoard() {
         return board;
+    }
+
+    public boolean isGameOver() {
+        return isWinner() || board.isComplete();
+    }
+
+    public boolean isWinner() {
+        return getWinner() != null;
+    }
+
+    public Player getWinner() {
+        return board.getWinner();
     }
 
     private void toggleCurrentPlayer() {

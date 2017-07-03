@@ -37,8 +37,7 @@ class GameTest {
     @Test
     public void afterFirstMoveReturnsGameIncomplete() throws IllegalMoveException {
         game.move(Square.TL);
-        GameStatus status = game.getGameStatus();
-        assertFalse(status.isGameOver);
+        assertFalse(game.isGameOver());
     }
 
     @Test
@@ -48,10 +47,9 @@ class GameTest {
         game.move(Square.MM);
         game.move(Square.MR);
         game.move(Square.BR);
-        GameStatus status = game.getGameStatus();
-        assertTrue(status.isGameOver);
-        assertTrue(status.isWinner);
-        assertEquals(Player.X, status.winner);
+        assertTrue(game.isGameOver());
+        assertTrue(game.isWinner());
+        assertEquals(Player.X, game.getWinner());
     }
 
     @Test
@@ -65,8 +63,7 @@ class GameTest {
         game.move(Square.ML);
         game.move(Square.BR);
         game.move(Square.BM);
-        GameStatus status = game.getGameStatus();
-        assertTrue(status.isGameOver);
-        assertFalse(status.isWinner);
+        assertTrue(game.isGameOver());
+        assertFalse(game.isWinner());
     }
 }

@@ -184,7 +184,7 @@ class ConsoleGameTest {
         };
         assertLinesEqual(expected);
     }
-    
+
     @Test void startsNewGameOnEnterYWhenGameOver() {
         startGame();
         consoleGame.next("tl");

@@ -63,7 +63,7 @@ public class ConsoleGame {
     }
 
     private boolean isGameComplete() {
-        return !isFirstRun() && game.getGameStatus().isGameOver;
+        return !isFirstRun() && game.isGameOver();
     }
 
     private void startNewGame() {
@@ -99,10 +99,10 @@ public class ConsoleGame {
 
     private void tryMove(String input) {
         makeMove(input);
-        if (game.getGameStatus().isWinner) {
+        if (game.isWinner()) {
             reportWinner();
         }
-        else if (game.getGameStatus().isGameOver) {
+        else if (game.isGameOver()) {
             printBoard();
             output.println("It's a draw!!");
             output.print("Press <Y> to play again, or <Q> to exit: ");
@@ -113,7 +113,7 @@ public class ConsoleGame {
     }
 
     private void reportWinner() {
-        String playerName = playerToString(game.getGameStatus().winner);
+        String playerName = playerToString(game.getWinner());
         printBoard();
         output.println(String.format("Player %s Wins!!", playerName));
         output.print("Press <Y> to play again, or <Q> to exit: ");
