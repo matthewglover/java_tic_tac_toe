@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1556ea42-6ce0-45b2-a088-0fdb12b3eb4e" name="Default" comment="Refactor Board Class and complete functionality">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/matthewglover/tictactoe/BoardRenderer.java" afterPath="$PROJECT_DIR$/src/com/matthewglover/tictactoe/BoardRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/matthewglover/tictactoe/ConsoleGame.java" afterPath="$PROJECT_DIR$/src/com/matthewglover/tictactoe/ConsoleGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/com/matthewglover/tictactoe/BoardRendererTest.java" afterPath="$PROJECT_DIR$/tests/com/matthewglover/tictactoe/BoardRendererTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,6 +30,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="44" column="31" lean-forward="false" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Row.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/matthewglover/tictactoe/Row.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -41,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsoleGameTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConsoleGameTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/com/matthewglover/tictactoe/ConsoleGameTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -61,16 +70,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/matthewglover/tictactoe/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -120,8 +119,8 @@
       <file leaf-file-name="BoardRendererTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/com/matthewglover/tictactoe/BoardRendererTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="510">
+              <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -182,13 +181,13 @@
         <option value="$PROJECT_DIR$/src/com/matthewglover/tictactoe/Board.java" />
         <option value="$PROJECT_DIR$/tests/com/matthewglover/tictactoe/BoardTest.java" />
         <option value="$PROJECT_DIR$/src/com/matthewglover/tictactoe/Main.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tests/com/matthewglover/tictactoe/ConsoleGameTest.java" />
         <option value="$PROJECT_DIR$/tests/com/matthewglover/tictactoe/GameTest.java" />
         <option value="$PROJECT_DIR$/src/com/matthewglover/tictactoe/Game.java" />
         <option value="$PROJECT_DIR$/tests/com/matthewglover/tictactoe/BoardRendererTest.java" />
         <option value="$PROJECT_DIR$/src/com/matthewglover/tictactoe/ConsoleGame.java" />
         <option value="$PROJECT_DIR$/src/com/matthewglover/tictactoe/BoardRenderer.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -689,7 +688,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20029673" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20029673" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20189431" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -949,14 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="7" lean-forward="false" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/com/matthewglover/tictactoe/BoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -1065,14 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/com/matthewglover/tictactoe/BoardRendererTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/com/matthewglover/tictactoe/ConsoleGameTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1080,6 +1063,22 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/matthewglover/tictactoe/BoardRendererTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="31" lean-forward="false" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>

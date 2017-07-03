@@ -29,23 +29,17 @@
 - Game Class:
     - [x] stores current player
     - [x] makes move on board
-    - [x] getGameStatus reports on current game status (returns a GameStatus Class)
-
-- GameStatus Class:
-    - [x] contains only immutable properties:
-        - [x] isGameOver: boolean
-        - [x] isWinner: boolean
-        - [x] winner: Player
+    - [x] reports on current status of game (isGameOver, isWinner, getWinner)
 
 - BoardRenderer:
-    - [x] takes a board
-    - [x] getRenderLines method returns a list of strings representing the current board,
+    - [x] getRenderLines takes a board and returns a list of strings representing the board,
     each string being an individual line
 
-- Main:
+- ConsoleGame:
     - [x] Initialises a Game
     - [x] Prints an introduction to the game
     - [x] Requests current player's move
     - [x] Makes move and renders updated game
     - [x] If game over, reports winner or draw and offers a play again option
     - [x] If not game over, requests current player's move
+    - [x] Allows Game to be quit
