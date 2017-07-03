@@ -163,6 +163,28 @@ class ConsoleGameTest {
         assertLinesEqual(expected);
     }
 
+    @Test
+    public void confirmsWinnerAfterWinningMoveByPlayerO() {
+        startGame();
+        consoleGame.next("tl");
+        consoleGame.next("mr");
+        consoleGame.next("tm");
+        consoleGame.next("mm");
+        consoleGame.next("br");
+        outContent.reset();
+        consoleGame.next("ml");
+        String[] expected = {
+                "  X  |  X  | tr",
+                "----- ----- ----",
+                "  O  |  O  |  O",
+                "----- ----- ----",
+                " bl  | bm  |  X",
+                "Player O Wins!!",
+                "Press <Y> to play again, or <Q> to exit: "
+        };
+        assertLinesEqual(expected);
+    }
+    
     @Test void startsNewGameOnEnterYWhenGameOver() {
         startGame();
         consoleGame.next("tl");
@@ -196,28 +218,6 @@ class ConsoleGameTest {
                 "----- ----- ----",
                 " bl  | bm  | br",
                 "Player O: "
-        };
-        assertLinesEqual(expected);
-    }
-
-    @Test
-    public void confirmsWinnerAfterWinningMoveByPlayerO() {
-        startGame();
-        consoleGame.next("tl");
-        consoleGame.next("mr");
-        consoleGame.next("tm");
-        consoleGame.next("mm");
-        consoleGame.next("br");
-        outContent.reset();
-        consoleGame.next("ml");
-        String[] expected = {
-                "  X  |  X  | tr",
-                "----- ----- ----",
-                "  O  |  O  |  O",
-                "----- ----- ----",
-                " bl  | bm  |  X",
-                "Player O Wins!!",
-                "Press <Y> to play again, or <Q> to exit: "
         };
         assertLinesEqual(expected);
     }

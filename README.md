@@ -47,5 +47,5 @@
     - [x] Prints an introduction to the game
     - [x] Requests current player's move
     - [x] Makes move and renders updated game
-    - [ ] If game over, reports winner or draw and offers a play again option
+    - [x] If game over, reports winner or draw and offers a play again option
     - [x] If not game over, requests current player's move
