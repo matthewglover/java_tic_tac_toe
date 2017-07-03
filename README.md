@@ -29,7 +29,7 @@
 - Game Class:
     - [x] stores current player
     - [x] makes move on board
-    - [ ] GameStatus reports on current game status (returns a GameStatus Class)
+    - [x] getGameStatus reports on current game status (returns a GameStatus Class)
 
 - GameStatus Class:
     - [x] contains only immutable properties:
@@ -43,9 +43,9 @@
     each string being an individual line
 
 - Main:
-    - [ ] Initialises a Game
-    - [ ] Prints an introduction to the game
-    - [ ] Requests current player's move
-    - [ ] Makes move and renders updated game
+    - [x] Initialises a Game
+    - [x] Prints an introduction to the game
+    - [x] Requests current player's move
+    - [x] Makes move and renders updated game
     - [ ] If game over, reports winner or draw and offers a play again option
-    - [ ] If not game over, requests current player's move
+    - [x] If not game over, requests current player's move

@@ -22,14 +22,14 @@ public class ConsoleGame {
     }
 
     public void next(String input) {
-       if (isFirstRun() && input.equals("N")) {
-           startNewGame();
+       if (isQuitRequest(input)) {
+           quit();
        }
-       else if (isCompletedGame() && input.equals("Y")) {
-           startNewGame();
+       else if (isFirstRun()) {
+           onFirstRun(input);
        }
-       else if (input.equals("Q")) {
-           runQuit();
+       else if (isGameComplete()) {
+           onGameComplete(input);
        }
        else {
            tryMove(input);
@@ -41,10 +41,28 @@ public class ConsoleGame {
     }
 
     private boolean isFirstRun() {
-       return game == null;
+        return game == null;
     }
 
-    private boolean isCompletedGame() {
+    private boolean isQuitRequest(String input) {
+        return input.equals("Q");
+    }
+
+    private void onFirstRun(String input) {
+        if (input.equals("N")) {
+            startNewGame();
+        } else if (input.equals("I")) {
+            printInstructions();
+        }
+    }
+
+    private void onGameComplete(String input) {
+        if (input.equals("Y")) {
+            startNewGame();
+        }
+    }
+
+    private boolean isGameComplete() {
         return !isFirstRun() && game.getGameStatus().isGameOver;
     }
 
@@ -59,7 +77,18 @@ public class ConsoleGame {
     }
 
     private void printBoard() {
+        printBoard(boardRenderer);
+    }
+
+    private void printBoard(BoardRenderer boardRenderer) {
         Arrays.stream(boardRenderer.getRenderLines()).forEach(line -> output.println(line));
+    }
+
+    private void printInstructions() {
+        output.println("Enter your move by typing the name of the square on the board:");
+        BoardRenderer boardRenderer = new BoardRenderer((new Game()).getBoard());
+        printBoard(boardRenderer);
+        output.print("Type <N> for new game or <Q> to quit: ");
     }
 
     private void promptForPlayerMove() {
@@ -72,7 +101,13 @@ public class ConsoleGame {
         makeMove(input);
         if (game.getGameStatus().isWinner) {
             reportWinner();
-        } else {
+        }
+        else if (game.getGameStatus().isGameOver) {
+            printBoard();
+            output.println("It's a draw!!");
+            output.print("Press <Y> to play again, or <Q> to exit: ");
+        }
+        else {
             promptForPlayerMove();
         }
     }
@@ -99,7 +134,7 @@ public class ConsoleGame {
         return (player == Player.X) ? "X" : "O";
     }
 
-    private void runQuit() {
+    private void quit() {
         isQuit = true;
         output.print("Bye Bye!");
     }

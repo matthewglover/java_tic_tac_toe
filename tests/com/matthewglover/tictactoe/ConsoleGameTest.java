@@ -24,6 +24,23 @@ class ConsoleGameTest {
     }
 
     @Test
+    public void afterStartInputOfIPrintsInstructions() {
+        consoleGame.start();
+        outContent.reset();
+        consoleGame.next("I");
+        String[] expected = {
+                "Enter your move by typing the name of the square on the board:",
+                " tl  | tm  | tr",
+                "----- ----- ----",
+                " ml  | mm  | mr",
+                "----- ----- ----",
+                " bl  | bm  | br",
+                "Type <N> for new game or <Q> to quit: "
+        };
+        assertLinesEqual(expected);
+    }
+
+    @Test
     public void startNewGamePrintsEmptyBoardAndPromptsForPlayerXMove() {
         consoleGame.start();
         outContent.reset();
@@ -200,6 +217,31 @@ class ConsoleGameTest {
                 "----- ----- ----",
                 " bl  | bm  |  X",
                 "Player O Wins!!",
+                "Press <Y> to play again, or <Q> to exit: "
+        };
+        assertLinesEqual(expected);
+    }
+
+    @Test
+    public void reportsDrawOnStalemate() {
+        startGame();
+        consoleGame.next("tl");
+        consoleGame.next("tr");
+        consoleGame.next("tm");
+        consoleGame.next("ml");
+        consoleGame.next("mm");
+        consoleGame.next("bm");
+        consoleGame.next("mr");
+        consoleGame.next("br");
+        outContent.reset();
+        consoleGame.next("bl");
+        String[] expected = {
+                "  X  |  X  |  O",
+                "----- ----- ----",
+                "  O  |  X  |  X",
+                "----- ----- ----",
+                "  X  |  O  |  O",
+                "It's a draw!!",
                 "Press <Y> to play again, or <Q> to exit: "
         };
         assertLinesEqual(expected);
