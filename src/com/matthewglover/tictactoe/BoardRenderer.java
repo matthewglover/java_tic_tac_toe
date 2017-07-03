@@ -1,13 +1,9 @@
 package com.matthewglover.tictactoe;
 
-public class BoardRenderer {
+public final class BoardRenderer {
     private Board board;
 
-    public BoardRenderer(Board b) {
-        board = b;
-    }
-
-    public String[] getRenderLines() {
+    public static String[] getRenderLines(Board board) {
         String divider = "----- ----- ----";
         String[] rows = {
                 buildRow("t", board.getSquareValue(Square.TL), board.getSquareValue(Square.TM), board.getSquareValue(Square.TR)),

@@ -9,7 +9,6 @@ public class ConsoleGame {
 
     private PrintStream output;
     private Game game;
-    private BoardRenderer boardRenderer;
     private boolean isQuit;
 
     public ConsoleGame(PrintStream output) {
@@ -73,21 +72,19 @@ public class ConsoleGame {
 
     private void buildNewGame() {
         game = new Game();
-        boardRenderer = new BoardRenderer(game.getBoard());
     }
 
     private void printBoard() {
-        printBoard(boardRenderer);
+        printBoard(game.getBoard());
     }
 
-    private void printBoard(BoardRenderer boardRenderer) {
-        Arrays.stream(boardRenderer.getRenderLines()).forEach(line -> output.println(line));
+    private void printBoard(Board board) {
+        Arrays.stream(BoardRenderer.getRenderLines(board)).forEach(line -> output.println(line));
     }
 
     private void printInstructions() {
         output.println("Enter your move by typing the name of the square on the board:");
-        BoardRenderer boardRenderer = new BoardRenderer((new Game()).getBoard());
-        printBoard(boardRenderer);
+        printBoard(new Board());
         output.print("Type <N> for new game or <Q> to quit: ");
     }
 

@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardRendererTest {
 
     private Board board = new Board();
-    private BoardRenderer boardRenderer = new BoardRenderer(board);
 
     @Test
     public void rendersBlankBoardProperly() {
@@ -19,7 +18,7 @@ class BoardRendererTest {
                 " bl  | bm  | br"
         };
 
-        assertArrayEquals(expected, boardRenderer.getRenderLines());
+        assertArrayEquals(expected, BoardRenderer.getRenderLines(board));
     }
 
     @Test
@@ -34,7 +33,7 @@ class BoardRendererTest {
                 " bl  | bm  | br"
         };
 
-        assertArrayEquals(expected, boardRenderer.getRenderLines());
+        assertArrayEquals(expected, BoardRenderer.getRenderLines(board));
     }
 
     @Test
@@ -50,7 +49,7 @@ class BoardRendererTest {
                 " bl  | bm  | br"
         };
 
-        assertArrayEquals(expected, boardRenderer.getRenderLines());
+        assertArrayEquals(expected, BoardRenderer.getRenderLines(board));
     }
 
     @Test
@@ -67,7 +66,7 @@ class BoardRendererTest {
                 " bl  | bm  |  X"
         };
 
-        assertArrayEquals(expected, boardRenderer.getRenderLines());
+        assertArrayEquals(expected, BoardRenderer.getRenderLines(board));
     }
 
     @Test
@@ -90,6 +89,6 @@ class BoardRendererTest {
                 "  O  |  X  |  O"
         };
 
-        assertArrayEquals(expected, boardRenderer.getRenderLines());
+        assertArrayEquals(expected, BoardRenderer.getRenderLines(board));
     }
 }
